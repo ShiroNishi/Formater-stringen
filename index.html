@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String formattering</title>
+</head>
+<body style="background-color: rgb(175, 175, 175);">
+    <h3>Skriv noe:</h3>
+    <div>
+        <input id="skriv" type="text" oninput="upperCase(this.value)">
+        <button onclick="upperCase('dfgdfgdfg')">Ok</button>
+    </div>
+
+    <h3>Du skrev:</h3>
+    <p id="output"></p>
+
+    <script>
+        // Kommer ikke lenger enn det her as, trenger hjelp
+
+        let letters = "";
+        let inum = 1;
+        let firstLetter;
+
+        function upperCase2(text){
+            if (inum === 1){
+                firstLetter = text.toUpperCase();
+                letters += firstLetter
+                inum ++;
+            } else {
+                letters = text;
+            }
+            console.log(letters)
+
+            document.getElementById('output').innerHTML = letters;
+        }
+
+
+
+
+        function upperCase(name){
+            let newWord = "";
+            for (let i = 0; i < name.length; i++){
+                if (i === 0){
+                    newWord += name[i].toUpperCase();
+                } else {
+                    newWord += name[i]
+                }
+            }
+            document.getElementById('output').innerHTML = newWord;
+
+            /*for (const i of name){
+                if (inum === 1){
+                    inum ++;
+                    firstLetter = i.toUpperCase();
+                    letters += firstLetter    
+                }
+                letters += i
+            }
+                console.log(letters)*/
+        }
+
+        function onInput(text){
+            letters = text;
+
+        }
+
+    </script>
+</body>
+</html>
